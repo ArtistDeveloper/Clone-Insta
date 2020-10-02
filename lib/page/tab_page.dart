@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
 
 class TabPage extends StatefulWidget {
   @override
@@ -7,10 +8,11 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    // Text(
+    //   'Index 0: Home',
+    // ),
+    HomePage(),
     Text(
       'Index 1: Search',
     ),
@@ -19,21 +21,17 @@ class _TabPageState extends State<TabPage> {
     ),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-    home: Scaffold(
+    return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        // selectedItemColor: ,
+        onTap: _onItemTapped, //Called when one of the items is tapped.  //??
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -48,10 +46,24 @@ class _TabPageState extends State<TabPage> {
             title: Text('Account')
           ),
         ],
-        currentIndex: _selectedIndex,
-        // selectedItemColor: ,
-        onTap: _onItemTapped, //Called when one of the items is tapped.
       ),
+    );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Widget drawCard() {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Text('hi'),
+          Text('hi'),
+          Text('hi')
+        ],
       )
     );
   }
