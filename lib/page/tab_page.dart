@@ -31,7 +31,7 @@ class _TabPageState extends State<TabPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         // selectedItemColor: ,
-        onTap: _onItemTapped, //Called when one of the items is tapped.  //??
+        onTap: _onItemTapped, //Called when one of the items is tapped.
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -46,6 +46,7 @@ class _TabPageState extends State<TabPage> {
             title: Text('Account')
           ),
         ],
+        // selectedItemColor: ,
       ),
     );
   }
